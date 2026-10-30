@@ -3,349 +3,247 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BASKET DATA</title>
-
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background: #0b1120;
-  color: #f1f5f9;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  background: #111c30;
-  padding: 22px 5%;
-  border-bottom: 1px solid #26364e;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.logo span {
-  color: #38bdf8;
-}
-
-header small {
-  color: #94a3b8;
-}
-
-nav {
-  display: flex;
-  gap: 5px;
-  padding: 15px 5%;
-  background: #111827;
-  overflow-x: auto;
-}
-
-nav button {
-  background: transparent;
-  color: #94a3b8;
-  border: none;
-  padding: 12px 15px;
-  cursor: pointer;
-  white-space: nowrap;
-  border-radius: 6px;
-}
-
-nav button.active,
-nav button:hover {
-  background: #1e3a5f;
-  color: white;
-}
-
-main {
-  max-width: 1250px;
-  margin: auto;
-  padding: 30px 5%;
-}
-
-.hero {
-  background: linear-gradient(120deg,#16365b,#102238,#0c1728);
-  padding: 40px 30px;
-  border: 1px solid #294665;
-  border-radius: 15px;
-  margin-bottom: 30px;
-}
-
-.eyebrow {
-  color: #38bdf8;
-  font-size: 12px;
-  letter-spacing: 2px;
-}
-
-h1 {
-  font-size: 32px;
-}
-
-h2 {
-  font-size: 20px;
-  margin-top: 30px;
-}
-
-p {
-  color: #94a3b8;
-  line-height: 1.7;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-  gap: 15px;
-}
-
-.card {
-  background: #142033;
-  border: 1px solid #26364e;
-  padding: 22px;
-  border-radius: 12px;
-}
-
-.label {
-  color: #94a3b8;
-  font-size: 13px;
-}
-
-.value {
-  font-size: 28px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.blue {
-  color: #38bdf8;
-}
-
-.section {
-  background: #142033;
-  border: 1px solid #26364e;
-  padding: 20px;
-  border-radius: 12px;
-  margin-top: 20px;
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 14px;
-  text-align: left;
-  border-bottom: 1px solid #29384d;
-}
-
-th {
-  color: #94a3b8;
-}
-
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
-
-.notice {
-  font-size: 12px;
-  margin-top: 25px;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #64748b;
-  border-top: 1px solid #26364e;
-}
+*{box-sizing:border-box}
+body{margin:0;background:#0b1120;color:#f1f5f9;font-family:Arial,"Helvetica Neue",sans-serif}
+header{background:#111c30;padding:22px 5%;border-bottom:1px solid #26364e;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:25px;font-weight:900}.logo span{color:#38bdf8}
+small,.muted{color:#94a3b8}
+nav{display:flex;gap:5px;padding:12px 5%;background:#111827;overflow-x:auto}
+button{cursor:pointer}
+nav button{background:none;color:#94a3b8;border:0;padding:12px 15px;white-space:nowrap;border-radius:6px}
+nav button.active,nav button:hover{background:#1e3a5f;color:white}
+main{max-width:1250px;margin:auto;padding:30px 5%}
+.page{display:none}.page.active{display:block}
+.hero{background:linear-gradient(120deg,#16365b,#102238,#0c1728);padding:35px;border:1px solid #294665;border-radius:15px;margin-bottom:25px}
+.eyebrow{color:#38bdf8;font-size:12px;letter-spacing:2px}
+h1{font-size:30px;margin:12px 0}h2{font-size:20px;margin-top:28px}
+p{color:#94a3b8;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px}
+.card,.panel{background:#142033;border:1px solid #26364e;border-radius:12px;padding:20px}
+.label{font-size:13px;color:#94a3b8}.value{font-size:27px;font-weight:bold;margin-top:9px}
+.blue{color:#38bdf8}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+input,select{background:#111c30;color:white;border:1px solid #354760;border-radius:8px;padding:12px;font-size:14px}
+input{flex:1;min-width:180px}
+.team-card{cursor:pointer;transition:.2s}
+.team-card:hover{border-color:#38bdf8;transform:translateY(-3px)}
+.team-name{font-size:18px;font-weight:bold;margin:12px 0}
+.team-mark{width:46px;height:46px;border-radius:12px;background:#1e3a5f;display:grid;place-items:center;color:#7dd3fc;font-weight:bold;font-size:20px}
+.tag{font-size:11px;background:#164e63;color:#67e8f9;padding:5px 8px;border-radius:5px}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{padding:13px 10px;text-align:left;border-bottom:1px solid #29384d;font-size:14px}
+th{color:#94a3b8;font-weight:normal}
+.table-wrap{overflow-x:auto}
+.btn{background:#1e3a5f;color:white;border:1px solid #345579;border-radius:7px;padding:10px 15px}
+.btn:hover{background:#28517d}
+.back{margin-bottom:20px}
+.detail-head{display:flex;align-items:center;gap:18px;margin:20px 0}
+.detail-mark{width:70px;height:70px;font-size:28px}
+.notice{font-size:12px;margin-top:25px;color:#94a3b8}
+footer{text-align:center;padding:30px;color:#64748b;border-top:1px solid #26364e;margin-top:40px}
+@media(max-width:600px){h1{font-size:25px}.hero{padding:25px 20px}main{padding:22px 4%}}
 </style>
 </head>
-
 <body>
 
 <header>
-  <div>
-    <div class="logo">BASKET <span>DATA</span></div>
-    <small>B.LEAGUE PREMIER ANALYTICS</small>
-  </div>
-  <small>2026-27 SEASON</small>
+ <div>
+  <div class="logo">BASKET <span>DATA</span></div>
+  <small>B.LEAGUE PREMIER ANALYTICS</small>
+ </div>
+ <small>TEAM DATABASE</small>
 </header>
 
 <nav>
-  <button class="active" onclick="showPage('home',this)">HOME</button>
-  <button onclick="showPage('teams',this)">TEAMS</button>
-  <button onclick="showPage('players',this)">PLAYERS</button>
-  <button onclick="showPage('ranking',this)">RANKINGS</button>
-  <button onclick="showPage('games',this)">GAMES</button>
-  <button onclick="showPage('ai',this)">AI ANALYSIS</button>
-  <button onclick="showPage('season',this)">SEASON PREDICTION</button>
-  <button onclick="showPage('community',this)">COMMUNITY</button>
+ <button class="active" onclick="showPage('home',this)">HOME</button>
+ <button onclick="showPage('teams',this)">TEAMS</button>
+ <button onclick="showPage('players',this)">PLAYERS</button>
+ <button onclick="showPage('ranking',this)">RANKINGS</button>
+ <button onclick="showPage('games',this)">GAMES</button>
+ <button onclick="showPage('ai',this)">AI ANALYSIS</button>
+ <button onclick="showPage('season',this)">SEASON PREDICTION</button>
+ <button onclick="showPage('community',this)">COMMUNITY</button>
 </nav>
 
 <main>
 
-<div id="home" class="page active">
+<section id="home" class="page active">
+ <div class="hero">
+  <div class="eyebrow">BASKETBALL DATA PLATFORM</div>
+  <h1>数字で見る、バスケットボール。</h1>
+  <p>チーム・選手・試合をデータで分析する。</p>
+  <button class="btn" onclick="showPage('teams',document.querySelectorAll('nav button')[1])">チーム一覧を見る →</button>
+ </div>
+ <h2>DATABASE</h2>
+ <div class="grid">
+  <div class="card"><div class="label">登録チーム</div><div class="value blue" id="teamCount">0</div></div>
+  <div class="card"><div class="label">登録選手</div><div class="value">準備中</div></div>
+  <div class="card"><div class="label">試合データ</div><div class="value">準備中</div></div>
+  <div class="card"><div class="label">データ更新</div><div class="value" style="font-size:20px">準備中</div></div>
+ </div>
+ <h2>CONTENTS</h2>
+ <div class="grid">
+  <div class="card"><div class="blue">01 / TEAMS</div><h3>チーム分析</h3><p>チームの成績・攻守の特徴を確認。</p></div>
+  <div class="card"><div class="blue">02 / PLAYERS</div><h3>選手分析</h3><p>選手ごとの詳細スタッツを比較。</p></div>
+  <div class="card"><div class="blue">03 / RANKINGS</div><h3>ランキング</h3><p>各種スタッツの順位を確認。</p></div>
+  <div class="card"><div class="blue">04 / PREDICTION</div><h3>勝敗予想</h3><p>データに基づく試合予測。</p></div>
+ </div>
+</section>
 
-  <div class="hero">
-    <div class="eyebrow">BASKETBALL DATA PLATFORM</div>
-    <h1>数字で見る、バスケットボール。</h1>
-    <p>B.LEAGUEのチーム・選手・試合をデータで分析する。</p>
-  </div>
+<section id="teams" class="page">
+ <div class="eyebrow">TEAM DATABASE</div>
+ <h1>TEAMS</h1>
+ <p>チームを選択すると詳細スタッツを確認できる。</p>
+ <div class="toolbar">
+  <input id="teamSearch" placeholder="チーム名を検索..." oninput="renderTeams()">
+  <select id="teamSort" onchange="renderTeams()">
+   <option value="name">チーム名順</option>
+   <option value="wins">勝利数順</option>
+   <option value="points">平均得点順</option>
+  </select>
+ </div>
+ <div id="teamGrid" class="grid"></div>
+</section>
 
-  <h2>LEAGUE OVERVIEW</h2>
+<section id="teamDetail" class="page">
+ <button class="btn back" onclick="showPage('teams',document.querySelectorAll('nav button')[1])">← チーム一覧に戻る</button>
+ <div id="teamInfo"></div>
+</section>
 
-  <div class="grid">
-    <div class="card">
-      <div class="label">登録チーム</div>
-      <div class="value blue">--</div>
-    </div>
+<section id="players" class="page">
+ <div class="eyebrow">PLAYER DATABASE</div>
+ <h1>PLAYERS</h1>
+ <p>選手プロフィール・個人成績を管理するページ。</p>
+ <div class="panel">選手データベースは次の開発段階で追加する予定。</div>
+</section>
 
-    <div class="card">
-      <div class="label">総試合数</div>
-      <div class="value">--</div>
-    </div>
+<section id="ranking" class="page">
+ <div class="eyebrow">STATISTICS</div>
+ <h1>RANKINGS</h1>
+ <p>チームのスタッツを比較するランキング。</p>
+ <div class="toolbar">
+  <select id="rankType" onchange="renderRanking()">
+   <option value="wins">勝利数</option>
+   <option value="points">平均得点</option>
+   <option value="rebounds">平均リバウンド</option>
+   <option value="assists">平均アシスト</option>
+   <option value="three">3P成功率</option>
+  </select>
+ </div>
+ <div class="panel table-wrap">
+  <table><thead><tr><th>順位</th><th>チーム</th><th>数値</th></tr></thead><tbody id="rankTable"></tbody></table>
+ </div>
+</section>
 
-    <div class="card">
-      <div class="label">登録選手</div>
-      <div class="value">--</div>
-    </div>
+<section id="games" class="page">
+ <h1>GAMES</h1><p>試合日程・結果・ボックススコア。</p>
+ <div class="panel">試合データは次の開発段階で追加予定。</div>
+</section>
 
-    <div class="card">
-      <div class="label">データ更新</div>
-      <div class="value">準備中</div>
-    </div>
-  </div>
+<section id="ai" class="page">
+ <h1>AI ANALYSIS</h1><p>試合予想・勝率分析。</p>
+ <div class="panel">統計データを利用した予測モデルを今後追加予定。</div>
+</section>
 
-  <h2>FEATURES</h2>
+<section id="season" class="page">
+ <h1>SEASON PREDICTION</h1><p>シーズン最終順位・プレーオフ進出予想。</p>
+ <div class="panel">シーズン予測機能を今後追加予定。</div>
+</section>
 
-  <div class="grid">
-    <div class="card">
-      <div class="blue">01 / TEAMS</div>
-      <h3>チーム分析</h3>
-      <p>チーム別成績・攻守の強さを分析。</p>
-    </div>
+<section id="community" class="page">
+ <h1>COMMUNITY</h1><p>チーム別掲示板・試合実況。</p>
+ <div class="panel">コミュニティ機能は今後追加予定。</div>
+</section>
 
-    <div class="card">
-      <div class="blue">02 / PLAYERS</div>
-      <h3>選手分析</h3>
-      <p>得点・リバウンド・アシストなどを比較。</p>
-    </div>
-
-    <div class="card">
-      <div class="blue">03 / RANKINGS</div>
-      <h3>詳細ランキング</h3>
-      <p>あらゆるスタッツの順位を表示。</p>
-    </div>
-
-    <div class="card">
-      <div class="blue">04 / AI</div>
-      <h3>勝敗予想</h3>
-      <p>データを使って試合結果を予測。</p>
-    </div>
-  </div>
-
-</div>
-
-<div id="teams" class="page">
-  <h1>TEAMS</h1>
-  <p>全チームの情報・シーズン成績</p>
-  <div class="section">チーム一覧を追加予定。</div>
-</div>
-
-<div id="players" class="page">
-  <h1>PLAYERS</h1>
-  <p>選手プロフィール・個人成績</p>
-  <div class="section">選手一覧を追加予定。</div>
-</div>
-
-<div id="ranking" class="page">
-  <h1>RANKINGS</h1>
-  <p>チーム別ランキング</p>
-
-  <div class="section">
-    <table>
-      <tr>
-        <th>項目</th>
-        <th>順位</th>
-        <th>数値</th>
-      </tr>
-      <tr><td>平均得点</td><td>--</td><td>--</td></tr>
-      <tr><td>3P成功率</td><td>--</td><td>--</td></tr>
-      <tr><td>リバウンド</td><td>--</td><td>--</td></tr>
-      <tr><td>アシスト</td><td>--</td><td>--</td></tr>
-      <tr><td>ターンオーバー</td><td>--</td><td>--</td></tr>
-      <tr><td>Net Rating</td><td>--</td><td>--</td></tr>
-    </table>
-  </div>
-</div>
-
-<div id="games" class="page">
-  <h1>GAMES</h1>
-  <p>試合日程・結果・ボックススコア</p>
-  <div class="section">試合データを追加予定。</div>
-</div>
-
-<div id="ai" class="page">
-  <h1>AI ANALYSIS</h1>
-  <p>試合予想・勝率分析</p>
-  <div class="section">
-    チームの成績をもとに勝敗を予測する機能を追加予定。
-  </div>
-</div>
-
-<div id="season" class="page">
-  <h1>SEASON PREDICTION</h1>
-  <p>シーズン最終順位・プレーオフ予想</p>
-  <div class="section">
-    最終順位や優勝確率を予測する機能を追加予定。
-  </div>
-</div>
-
-<div id="community" class="page">
-  <h1>COMMUNITY</h1>
-  <p>ファン同士の交流スペース</p>
-  <div class="section">
-    チーム別掲示板・試合実況機能を追加予定。
-  </div>
-</div>
-
-<p class="notice">
-※現在は試作品です。実際のリーグ公式データではありません。
-</p>
-
+<p class="notice">※現在のチーム情報・数値は操作確認用の架空サンプルです。実際のB.LEAGUE公式データではありません。</p>
 </main>
 
-<footer>
-  BASKET DATA © 2026
-</footer>
+<footer>BASKET DATA © 2026</footer>
 
 <script>
-function showPage(id,button) {
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
-  });
+// 操作確認用の架空データ。公式成績ではありません。
+const teams = [
+ {id:1,name:"サンプル東京",area:"東京",wins:18,losses:6,points:85.2,rebounds:38.4,assists:21.5,three:36.8,against:76.4},
+ {id:2,name:"サンプル大阪",area:"大阪",wins:16,losses:8,points:82.6,rebounds:40.1,assists:19.8,three:35.2,against:78.1},
+ {id:3,name:"サンプル神奈川",area:"神奈川",wins:14,losses:10,points:80.4,rebounds:37.2,assists:22.1,three:37.5,against:79.3},
+ {id:4,name:"サンプル愛知",area:"愛知",wins:12,losses:12,points:78.9,rebounds:39.6,assists:18.7,three:34.1,against:80.2},
+ {id:5,name:"サンプル福岡",area:"福岡",wins:10,losses:14,points:77.3,rebounds:36.8,assists:20.2,three:33.9,against:82.5},
+ {id:6,name:"サンプル北海道",area:"北海道",wins:8,losses:16,points:74.8,rebounds:35.9,assists:17.9,three:32.7,against:84.1}
+];
 
-  document.querySelectorAll('nav button').forEach(btn => {
-    btn.classList.remove('active');
-  });
-
-  document.getElementById(id).classList.add('active');
-  button.classList.add('active');
+function showPage(id,button){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ if(button) button.classList.add('active');
+ window.scrollTo(0,0);
 }
-</script>
 
+function renderTeams(){
+ const search=document.getElementById('teamSearch').value.toLowerCase();
+ const sort=document.getElementById('teamSort').value;
+ let list=teams.filter(t=>t.name.toLowerCase().includes(search)||t.area.toLowerCase().includes(search));
+ if(sort==='wins')list.sort((a,b)=>b.wins-a.wins);
+ else if(sort==='points')list.sort((a,b)=>b.points-a.points);
+ else list.sort((a,b)=>a.name.localeCompare(b.name,'ja'));
+
+ document.getElementById('teamGrid').innerHTML=list.map(t=>`
+ <div class="card team-card" onclick="openTeam(${t.id})">
+  <div class="team-mark">${t.name.slice(4,5)}</div>
+  <div class="team-name">${t.name}</div>
+  <div class="label">${t.area} / サンプルデータ</div>
+  <hr style="border-color:#29384d;margin:16px 0">
+  <div class="grid">
+   <div><div class="label">勝利</div><b>${t.wins}</b></div>
+   <div><div class="label">敗戦</div><b>${t.losses}</b></div>
+   <div><div class="label">平均得点</div><b>${t.points}</b></div>
+  </div>
+  <p class="blue">詳細を見る →</p>
+ </div>`).join('')||'<p>該当するチームがありません。</p>';
+}
+
+function openTeam(id){
+ const t=teams.find(x=>x.id===id);
+ document.getElementById('teamInfo').innerHTML=`
+ <div class="eyebrow">TEAM PROFILE / ${t.id}</div>
+ <div class="detail-head">
+  <div class="team-mark detail-mark">${t.name.slice(4,5)}</div>
+  <div><h1>${t.name}</h1><p>${t.area} / サンプルチーム</p></div>
+ </div>
+ <div class="grid">
+  <div class="card"><div class="label">勝利数</div><div class="value blue">${t.wins}</div></div>
+  <div class="card"><div class="label">敗戦数</div><div class="value">${t.losses}</div></div>
+  <div class="card"><div class="label">勝率</div><div class="value">${(t.wins/(t.wins+t.losses)*100).toFixed(1)}%</div></div>
+  <div class="card"><div class="label">得失点差</div><div class="value">${(t.points-t.against).toFixed(1)}</div></div>
+ </div>
+ <h2>TEAM STATISTICS</h2>
+ <div class="panel table-wrap">
+  <table>
+   <tr><th>スタッツ</th><th>平均値</th></tr>
+   <tr><td>得点</td><td>${t.points}</td></tr>
+   <tr><td>失点</td><td>${t.against}</td></tr>
+   <tr><td>リバウンド</td><td>${t.rebounds}</td></tr>
+   <tr><td>アシスト</td><td>${t.assists}</td></tr>
+   <tr><td>3P成功率</td><td>${t.three}%</td></tr>
+  </table>
+ </div>`;
+ showPage('teamDetail',null);
+}
+
+function renderRanking(){
+ const key=document.getElementById('rankType').value;
+ const labels={wins:'勝利数',points:'平均得点',rebounds:'平均リバウンド',assists:'平均アシスト',three:'3P成功率'};
+ const sorted=[...teams].sort((a,b)=>b[key]-a[key]);
+ document.getElementById('rankTable').innerHTML=sorted.map((t,i)=>`
+ <tr><td>${i+1}</td><td>${t.name}</td><td>${t[key]}${key==='three'?'%':''}</td></tr>`).join('');
+}
+document.getElementById('teamCount').textContent=teams.length;
+renderTeams();
+renderRanking();
+</script>
 </body>
 </html>
+
