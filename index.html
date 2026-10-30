@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BASKET DATA</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b1120;
+  color: #f1f5f9;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #111c30;
+  padding: 22px 5%;
+  border-bottom: 1px solid #26364e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #38bdf8;
+}
+
+header small {
+  color: #94a3b8;
+}
+
+nav {
+  display: flex;
+  gap: 5px;
+  padding: 15px 5%;
+  background: #111827;
+  overflow-x: auto;
+}
+
+nav button {
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  padding: 12px 15px;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 6px;
+}
+
+nav button.active,
+nav button:hover {
+  background: #1e3a5f;
+  color: white;
+}
+
+main {
+  max-width: 1250px;
+  margin: auto;
+  padding: 30px 5%;
+}
+
+.hero {
+  background: linear-gradient(120deg,#16365b,#102238,#0c1728);
+  padding: 40px 30px;
+  border: 1px solid #294665;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  color: #38bdf8;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+p {
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 15px;
+}
+
+.card {
+  background: #142033;
+  border: 1px solid #26364e;
+  padding: 22px;
+  border-radius: 12px;
+}
+
+.label {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.blue {
+  color: #38bdf8;
+}
+
+.section {
+  background: #142033;
+  border: 1px solid #26364e;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #29384d;
+}
+
+th {
+  color: #94a3b8;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.notice {
+  font-size: 12px;
+  margin-top: 25px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #64748b;
+  border-top: 1px solid #26364e;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div>
+    <div class="logo">BASKET <span>DATA</span></div>
+    <small>B.LEAGUE PREMIER ANALYTICS</small>
+  </div>
+  <small>2026-27 SEASON</small>
+</header>
+
+<nav>
+  <button class="active" onclick="showPage('home',this)">HOME</button>
+  <button onclick="showPage('teams',this)">TEAMS</button>
+  <button onclick="showPage('players',this)">PLAYERS</button>
+  <button onclick="showPage('ranking',this)">RANKINGS</button>
+  <button onclick="showPage('games',this)">GAMES</button>
+  <button onclick="showPage('ai',this)">AI ANALYSIS</button>
+  <button onclick="showPage('season',this)">SEASON PREDICTION</button>
+  <button onclick="showPage('community',this)">COMMUNITY</button>
+</nav>
+
+<main>
+
+<div id="home" class="page active">
+
+  <div class="hero">
+    <div class="eyebrow">BASKETBALL DATA PLATFORM</div>
+    <h1>数字で見る、バスケットボール。</h1>
+    <p>B.LEAGUEのチーム・選手・試合をデータで分析する。</p>
+  </div>
+
+  <h2>LEAGUE OVERVIEW</h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="label">登録チーム</div>
+      <div class="value blue">--</div>
+    </div>
+
+    <div class="card">
+      <div class="label">総試合数</div>
+      <div class="value">--</div>
+    </div>
+
+    <div class="card">
+      <div class="label">登録選手</div>
+      <div class="value">--</div>
+    </div>
+
+    <div class="card">
+      <div class="label">データ更新</div>
+      <div class="value">準備中</div>
+    </div>
+  </div>
+
+  <h2>FEATURES</h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="blue">01 / TEAMS</div>
+      <h3>チーム分析</h3>
+      <p>チーム別成績・攻守の強さを分析。</p>
+    </div>
+
+    <div class="card">
+      <div class="blue">02 / PLAYERS</div>
+      <h3>選手分析</h3>
+      <p>得点・リバウンド・アシストなどを比較。</p>
+    </div>
+
+    <div class="card">
+      <div class="blue">03 / RANKINGS</div>
+      <h3>詳細ランキング</h3>
+      <p>あらゆるスタッツの順位を表示。</p>
+    </div>
+
+    <div class="card">
+      <div class="blue">04 / AI</div>
+      <h3>勝敗予想</h3>
+      <p>データを使って試合結果を予測。</p>
+    </div>
+  </div>
+
+</div>
+
+<div id="teams" class="page">
+  <h1>TEAMS</h1>
+  <p>全チームの情報・シーズン成績</p>
+  <div class="section">チーム一覧を追加予定。</div>
+</div>
+
+<div id="players" class="page">
+  <h1>PLAYERS</h1>
+  <p>選手プロフィール・個人成績</p>
+  <div class="section">選手一覧を追加予定。</div>
+</div>
+
+<div id="ranking" class="page">
+  <h1>RANKINGS</h1>
+  <p>チーム別ランキング</p>
+
+  <div class="section">
+    <table>
+      <tr>
+        <th>項目</th>
+        <th>順位</th>
+        <th>数値</th>
+      </tr>
+      <tr><td>平均得点</td><td>--</td><td>--</td></tr>
+      <tr><td>3P成功率</td><td>--</td><td>--</td></tr>
+      <tr><td>リバウンド</td><td>--</td><td>--</td></tr>
+      <tr><td>アシスト</td><td>--</td><td>--</td></tr>
+      <tr><td>ターンオーバー</td><td>--</td><td>--</td></tr>
+      <tr><td>Net Rating</td><td>--</td><td>--</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="games" class="page">
+  <h1>GAMES</h1>
+  <p>試合日程・結果・ボックススコア</p>
+  <div class="section">試合データを追加予定。</div>
+</div>
+
+<div id="ai" class="page">
+  <h1>AI ANALYSIS</h1>
+  <p>試合予想・勝率分析</p>
+  <div class="section">
+    チームの成績をもとに勝敗を予測する機能を追加予定。
+  </div>
+</div>
+
+<div id="season" class="page">
+  <h1>SEASON PREDICTION</h1>
+  <p>シーズン最終順位・プレーオフ予想</p>
+  <div class="section">
+    最終順位や優勝確率を予測する機能を追加予定。
+  </div>
+</div>
+
+<div id="community" class="page">
+  <h1>COMMUNITY</h1>
+  <p>ファン同士の交流スペース</p>
+  <div class="section">
+    チーム別掲示板・試合実況機能を追加予定。
+  </div>
+</div>
+
+<p class="notice">
+※現在は試作品です。実際のリーグ公式データではありません。
+</p>
+
+</main>
+
+<footer>
+  BASKET DATA © 2026
+</footer>
+
+<script>
+function showPage(id,button) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  document.querySelectorAll('nav button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+  button.classList.add('active');
+}
+</script>
+
+</body>
+</html>
